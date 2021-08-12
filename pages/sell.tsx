@@ -1,7 +1,3 @@
 export default function SellPage() {
-  return (
-    <div>
-      <p>Sell Page</p>
-    </div>
-  )
+  return <h3>Test tings...</h3>
 }
