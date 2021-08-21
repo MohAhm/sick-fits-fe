@@ -1,19 +1,47 @@
-import { AppProps } from 'next/app'
-import Router from 'next/router'
-import React from 'react'
-import NProgress from 'nprogress'
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+  NormalizedCacheObject,
+} from "@apollo/client";
+import { AppProps } from "next/app";
+import Router from "next/router";
+import React from "react";
+import NProgress from "nprogress";
 
-import { Page } from '../components/Page'
-import '../components/styles/nprogress.css'
+import { endpoint } from "../config";
+import { Page } from "../components/Page";
+import withData from "../lib/withData";
+import "../components/styles/nprogress.css";
 
-Router.events.on('routeChangeStart', () => NProgress.start())
-Router.events.on('routeChangeComplete', () => NProgress.done())
-Router.events.on('routeChangeError', () => NProgress.done())
+Router.events.on("routeChangeStart", () => NProgress.start());
+Router.events.on("routeChangeComplete", () => NProgress.done());
+Router.events.on("routeChangeError", () => NProgress.done());
 
-export default function App({ Component, pageProps }: AppProps) {
-    return (
-        <Page>
-            <Component {...pageProps} />
-        </Page>
-    )
+// Initialize ApolloClient
+const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: endpoint,
+});
+
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <ApolloProvider client={client}>
+      <Page>
+        <Component {...pageProps} />
+      </Page>
+    </ApolloProvider>
+  );
 }
+
+App.getInitialProps = async function ({ Component, ctx }: any) {
+  let pageProps: any = {};
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx);
+  }
+
+  pageProps.query = ctx.query;
+  return { pageProps };
+};
+
+export default withData(App);
