@@ -1,6 +1,6 @@
-import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
-import { Header } from './Header'
+import React from "react";
+import styled, { createGlobalStyle } from "styled-components";
+import { Header } from "./Header";
 
 const GlobalStyles = createGlobalStyle`
     @font-face {
@@ -22,6 +22,7 @@ const GlobalStyles = createGlobalStyle`
         --maxWidth: 1000px;
         --bs: 0 12px 24px 0 rgba(0, 0, 0, 0.09); 
         box-sizing: border-box;
+        font-size: 10px;
     }
 
     *, *::before, *::after {
@@ -54,22 +55,22 @@ const GlobalStyles = createGlobalStyle`
         Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', 
         sans-serif;
     }
-`
+`;
 
 const InnerStyles = styled.div`
-    max-width: var(--maxWidth);
-    margin: 0;
-    padding: 2rem;
-`
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding: 2rem;
+`;
 
 interface IPageProps {}
 
 export const Page: React.FC<IPageProps> = ({ children }) => {
-    return (
-        <div>
-            <GlobalStyles />
-            <Header />
-            <InnerStyles>{children}</InnerStyles>
-        </div>
-    )
-}
+  return (
+    <div>
+      <GlobalStyles />
+      <Header />
+      <InnerStyles>{children}</InnerStyles>
+    </div>
+  );
+};
