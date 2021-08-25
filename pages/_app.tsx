@@ -6,7 +6,6 @@ import {
 } from "@apollo/client";
 import { AppProps } from "next/app";
 import Router from "next/router";
-import React from "react";
 import NProgress from "nprogress";
 
 import { endpoint } from "../config";

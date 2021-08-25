@@ -1,6 +1,5 @@
 import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
-import React from "react";
 import styled from "styled-components";
 import { IProductsData } from "../public/models";
 import { Product } from "./Product";

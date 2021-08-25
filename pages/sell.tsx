@@ -1,3 +1,9 @@
+import { CreateProduct } from "../components/CreateProduct";
+
 export default function SellPage() {
-  return <h3>Test tings...</h3>
+  return (
+    <div>
+      <CreateProduct />
+    </div>
+  );
 }

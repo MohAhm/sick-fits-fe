@@ -1,4 +1,3 @@
-
 export interface IProducts {
   id: string;
   name: string;
@@ -14,4 +13,8 @@ export interface IProducts {
 
 export interface IProductsData {
   allProducts: IProducts[];
+}
+
+export interface IInputForm {
+  [key: string]: string | number
 }
