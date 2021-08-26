@@ -1,18 +1,18 @@
 import { IInputForm } from './../public/models';
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 
 export default function useForm(initial: IInputForm = {}) {
   const [inputs, setInputs] = useState(initial)
 
-	function handleChange(e: ChangeEvent<HTMLInputElement>) {
-			let { name, value, type } = e.target
+	function handleChange(e: any) {
+			let { name, value, type, files } = e.target
 
 			if (type === 'number') {
 				value = Number(value)
 			}
 
 			if (type === 'file') {
-				value[0] = e.target.files
+				[value] = files
 			}
 
 			setInputs({
