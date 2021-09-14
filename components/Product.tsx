@@ -4,6 +4,7 @@ import ItemStyles from "./styles/ItemStyles";
 import Title from "./styles/Title";
 import PriceTag from "./styles/PriceTag";
 import formatMony from "../lib/formatMony";
+import { DeleteProduct } from "./DeleteProduct";
 
 interface IProductProps {
   product: IProducts;
@@ -32,6 +33,7 @@ export const Product: React.FC<IProductProps> = ({ product }) => {
         >
           Edit ✏️
         </Link>
+        <DeleteProduct id={product.id}>Delete</DeleteProduct>
       </div>
     </ItemStyles>
   );
