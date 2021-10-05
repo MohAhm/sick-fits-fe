@@ -16,7 +16,7 @@ export const Nav: React.FC<INavProps> = () => {
         <Link href="/sell">Sell</Link>
         <Link href="/orders">Orders</Link>
         <Link href="/account">Account</Link>
-        <SignOut />
+        {/* <SignOut /> */}
       </>
       {/* )} */}
       {!user && <Link href="/signin">Sign In</Link>}
