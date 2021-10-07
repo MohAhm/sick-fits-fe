@@ -1,5 +1,12 @@
 import styled, { keyframes } from 'styled-components';
 
+interface IDropDownItem {
+  highlighted?: boolean
+  theme?: {
+    lightgrey: string
+  }
+}
+
 const DropDown = styled.div`
   position: absolute;
   width: 100%;
@@ -9,14 +16,14 @@ const DropDown = styled.div`
 
 const DropDownItem = styled.div`
   border-bottom: 1px solid var(--lightGray);
-  background: ${(props) => (props.highlighted ? '#f7f7f7' : 'white')};
+  background: ${(props: IDropDownItem) => (props.highlighted ? '#f7f7f7' : 'white')};
   padding: 1rem;
   transition: all 0.2s;
-  ${(props) => (props.highlighted ? 'padding-left: 2rem;' : null)};
+  ${(props: IDropDownItem) => (props.highlighted ? 'padding-left: 2rem;' : null)};
   display: flex;
   align-items: center;
   border-left: 10px solid
-    ${(props) => (props.highlighted ? props.theme.lightgrey : 'white')};
+    ${(props: IDropDownItem) => (props.highlighted ? props.theme?.lightgrey : 'white')};
   img {
     margin-right: 10px;
   }

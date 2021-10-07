@@ -1,6 +1,7 @@
 import {
   ApolloClient,
   ApolloProvider,
+  createHttpLink,
   InMemoryCache,
   NormalizedCacheObject,
 } from "@apollo/client";
@@ -18,9 +19,14 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 // Initialize ApolloClient
+const link = createHttpLink({
+  uri: endpoint,
+  credentials: "include",
+});
+
 const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: endpoint,
+  link,
 });
 
 function App({ Component, pageProps }: AppProps) {

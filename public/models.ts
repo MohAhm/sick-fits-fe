@@ -18,3 +18,19 @@ export interface IProductsData {
 export interface IInputForm {
   [key: string]: string | number
 }
+
+export interface ICart {
+  id: string
+  quantity: number
+  product: {
+    id: string
+    name: string
+    price: number
+    description: string
+    photo: {
+      image: {
+        publicUrlTransformed: string
+      }
+    }
+  }
+}
