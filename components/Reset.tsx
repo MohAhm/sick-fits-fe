@@ -38,9 +38,7 @@ export const Reset: React.FC<IReset> = ({ token }) => {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
-    console.log(inputs);
     const res = await reset().catch(console.error);
-    console.log(res);
     resetForm();
   }
 

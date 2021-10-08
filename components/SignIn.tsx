@@ -37,9 +37,7 @@ export const SignIn: React.FC = () => {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
-    console.log(inputs);
     const res = await signin();
-    console.log(res);
     resetForm();
   }
 

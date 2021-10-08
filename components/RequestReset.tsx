@@ -27,9 +27,7 @@ export const RequestReset: React.FC = () => {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
-    console.log(inputs);
     const res = await signup().catch(console.error);
-    console.log(res);
     resetForm();
   }
 

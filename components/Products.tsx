@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
 import styled from "styled-components";
 import { perPage } from "../config";
-import { IProductsData } from "../public/models";
+import { IProducts } from "../public/models";
 import { Product } from "./Product";
 
 export const ALL_PRODUCTS_QUERY = gql`
@@ -28,12 +28,12 @@ const ProductsListStyles = styled.div`
   grid-gap: 60px;
 `;
 
-interface IProducts {
+interface IProductProps {
   page: number;
 }
 
-export const Products: React.FC<IProducts> = ({ page }) => {
-  const { data, error, loading } = useQuery<IProductsData>(ALL_PRODUCTS_QUERY, {
+export const Products: React.FC<IProductProps> = ({ page }) => {
+  const { data, error, loading } = useQuery<IProducts>(ALL_PRODUCTS_QUERY, {
     variables: {
       skip: page * perPage - perPage,
       first: perPage,

@@ -1,8 +1,8 @@
 import { ICart } from './public/models';
 
-export default function calcTotalPrice(cart: any) {
-  console.log('Cart', cart)
-  return cart?.reduce((tally: any, cartItem: ICart)  => {
+export default function calcTotalPrice(cart: ICart[]) {
+
+  return cart?.reduce((tally, cartItem)  => {
     if (!cartItem.product) {
       return tally
     }

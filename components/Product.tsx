@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IProducts } from "../public/models";
+import { IProduct } from "../public/models";
 import ItemStyles from "./styles/ItemStyles";
 import Title from "./styles/Title";
 import PriceTag from "./styles/PriceTag";
@@ -7,7 +7,7 @@ import formatMony from "../lib/formatMony";
 import { DeleteProduct } from "./DeleteProduct";
 
 interface IProductProps {
-  product: IProducts;
+  product: IProduct;
 }
 
 export const Product: React.FC<IProductProps> = ({ product }) => {

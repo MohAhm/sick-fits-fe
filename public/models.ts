@@ -1,4 +1,5 @@
-export interface IProducts {
+
+export interface IProduct {
   id: string;
   name: string;
   price: number;
@@ -11,8 +12,8 @@ export interface IProducts {
   };
 }
 
-export interface IProductsData {
-  allProducts: IProducts[];
+export interface IProducts {
+  allProducts: IProduct[];
 }
 
 export interface IInputForm {
@@ -22,15 +23,14 @@ export interface IInputForm {
 export interface ICart {
   id: string
   quantity: number
-  product: {
+  product: IProduct
+}
+
+export interface IUser {
+  authenticatedItem: {
     id: string
+    email: string
     name: string
-    price: number
-    description: string
-    photo: {
-      image: {
-        publicUrlTransformed: string
-      }
-    }
+    cart: ICart[]
   }
 }

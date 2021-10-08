@@ -46,8 +46,6 @@ export const SingleProduct: React.FC<ISingleProductProps> = ({ id }) => {
     },
   });
 
-  // console.log({ data, loading, error });
-
   if (loading) {
     return <p>Loading ...</p>;
   }
