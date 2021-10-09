@@ -5,6 +5,7 @@ import Title from "./styles/Title";
 import PriceTag from "./styles/PriceTag";
 import formatMony from "../lib/formatMony";
 import { DeleteProduct } from "./DeleteProduct";
+import { AddToCart } from "./AddToCart";
 
 interface IProductProps {
   product: IProduct;
@@ -33,6 +34,7 @@ export const Product: React.FC<IProductProps> = ({ product }) => {
         >
           Edit ✏️
         </Link>
+        <AddToCart id={product.id} />
         <DeleteProduct id={product.id}>Delete</DeleteProduct>
       </div>
     </ItemStyles>
