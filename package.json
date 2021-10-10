@@ -33,7 +33,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-transition-group": "^4.4.1",
+    "react-transition-group": "^4.4.2",
     "styled-components": "^5.3.0",
     "waait": "^1.0.5"
   },
@@ -46,6 +46,7 @@
     "@testing-library/user-event": "^12.3.0",
     "@types/apollo-upload-client": "^14.1.0",
     "@types/nprogress": "^0.2.0",
+    "@types/react-transition-group": "^4.4.3",
     "@types/styled-components": "^5.1.12",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",

@@ -17,12 +17,15 @@ interface IAddToCartProps {
 
 export const AddToCart: React.FC<IAddToCartProps> = ({ id }) => {
   const [addToCart, { loading }] = useMutation(ADD_TO_CART_MUTATION, {
-    variables: { id },
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
 
   return (
-    <button disabled={loading} type="button" onClick={addToCart}>
+    <button
+      disabled={loading}
+      type="button"
+      onClick={() => addToCart({ variables: { id } })}
+    >
       Add{loading && "ing"} To Cart 🛒
     </button>
   );

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import formatMony from "../lib/formatMony";
 import { ICart } from "../public/models";
+import { RemoveFromCart } from "./RemoveFromCart";
 
 interface ICartItemProps {
   cartItem: ICart;
@@ -36,11 +37,11 @@ export const CartItem: React.FC<ICartItemProps> = ({ cartItem }) => {
         <p>
           {formatMony(product.price * cartItem.quantity)} -
           <em>
-            {cartItem.quantity} &times; {formatMony(product.price)}
-            each
+            {cartItem.quantity} &times; {formatMony(product.price)} each
           </em>
         </p>
       </div>
+      <RemoveFromCart id={cartItem.id} />
     </CartItemStyles>
   );
 };

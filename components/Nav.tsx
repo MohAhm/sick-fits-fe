@@ -1,5 +1,6 @@
 import Link from "next/link";
 import useCart from "../lib/useCart";
+import { CartCount } from "./CartCount";
 import { SignOut } from "./SignOut";
 import NavStyles from "./styles/NavStyles";
 import { useUser } from "./User";
@@ -20,7 +21,15 @@ export const Nav: React.FC<INavProps> = () => {
           <Link href="/sell">Sell</Link>
           <Link href="/orders">Orders</Link>
           <Link href="/account">Account</Link>
-          <button onClick={openCart}>My Cart</button>
+          <button onClick={openCart}>
+            My Cart
+            <CartCount
+              count={user.cart.reduce(
+                (tally, cartItem) => tally + cartItem.quantity,
+                0
+              )}
+            />
+          </button>
           <SignOut />
         </>
       )}
