@@ -1,13 +1,14 @@
 import React from "react";
 import calcTotalPrice from "../calcTotalPrice";
 import formatMony from "../lib/formatMony";
-import { CartItem } from "./CartItem";
 
 import CartStyles from "./styles/CartStyles";
 import CloseButton from "./styles/CloseButton";
 import Supreme from "./styles/Supreme";
 import { useUser } from "./User";
 import useCart from "../lib/useCart";
+import { CartItem } from "./CartItem";
+import { Checkout } from "./Checkout";
 
 interface ICartProps {}
 
@@ -30,6 +31,7 @@ export const Cart: React.FC<ICartProps> = () => {
       </ul>
       <footer>
         <p>{formatMony(calcTotalPrice(me.cart))}</p>
+        <Checkout />
       </footer>
     </CartStyles>
   );

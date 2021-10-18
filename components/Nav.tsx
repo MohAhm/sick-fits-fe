@@ -25,7 +25,8 @@ export const Nav: React.FC<INavProps> = () => {
             My Cart
             <CartCount
               count={user.cart.reduce(
-                (tally, cartItem) => tally + cartItem.quantity,
+                (tally, cartItem) =>
+                  tally + (cartItem.product ? cartItem.quantity : 0),
                 0
               )}
             />
